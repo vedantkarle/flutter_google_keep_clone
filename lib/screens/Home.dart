@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_google_keep_clone/colors.dart';
 import 'package:flutter_google_keep_clone/screens/NewNote.dart';
 import 'package:flutter_google_keep_clone/screens/NoteView.dart';
+import 'package:flutter_google_keep_clone/screens/Search.dart';
 import 'package:flutter_google_keep_clone/widgets/SideMenu.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
@@ -93,21 +94,31 @@ class _HomeState extends State<Home> {
                           SizedBox(
                             width: 16,
                           ),
-                          Container(
-                            height: 55,
-                            width: 175,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Search your notes",
-                                  style: TextStyle(
-                                    color: white.withOpacity(0.5),
-                                    fontSize: 16,
-                                  ),
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => Search(),
                                 ),
-                              ],
+                              );
+                            },
+                            child: Container(
+                              height: 55,
+                              width: 175,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Search your notes",
+                                    style: TextStyle(
+                                      color: white.withOpacity(0.5),
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],

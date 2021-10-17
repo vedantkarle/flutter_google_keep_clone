@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_google_keep_clone/colors.dart';
+import 'package:flutter_google_keep_clone/screens/ArchivedNotes.dart';
+import 'package:flutter_google_keep_clone/screens/Home.dart';
+import 'package:flutter_google_keep_clone/screens/Settings.dart';
 
 class SideMenu extends StatefulWidget {
   const SideMenu({Key? key}) : super(key: key);
@@ -37,15 +40,36 @@ class _SideMenuState extends State<SideMenu> {
               Divider(
                 color: white.withOpacity(0.3),
               ),
-              section("Notes", () {}, Icons.lightbulb, true),
+              section("Notes", () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Home(),
+                  ),
+                );
+              }, Icons.lightbulb, true),
               SizedBox(
                 height: 5,
               ),
-              section("Archive", () {}, Icons.archive_outlined, false),
+              section("Archive", () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ArchivedNotes(),
+                  ),
+                );
+              }, Icons.archive_outlined, false),
               SizedBox(
                 height: 5,
               ),
-              section("Settings", () {}, Icons.settings, false),
+              section("Settings", () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Settings(),
+                  ),
+                );
+              }, Icons.settings, false),
             ],
           ),
         ),
